@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables CSS</title>
+    <style>
+        :root {
+            --base: #ffc600;
+            --spacing: 20px;
+            --blur: 10px;
+        }
+
+        body {
+            font-family: Helvetica, sans-serif;
+            font-weight: lighter;
+            text-align: center;
+            background: #193549;
+            color: white;
+        }
+
+        div:last-child {
+            background-color: var(--base);
+        }
+
+        img {
+            display: block;
+            padding: var(--spacing);
+            background: var(--base);
+            filter: blur(var(--blur));
+        }
+
+        label,
+        input {
+            margin: 0px, var(--spacing);
+        }
+    </style>
+    <script src="index.js" defer></script>
+
+</head>
+
+<body>
+    <h1>Update CSS variables with JS</h1>
+    <label>Spacing:</label>
+    <input type="range" name="spacing" min="10" max="200" data-suffix="px">
+    <label>Blur:</label>
+    <input type="range" name="blur" min="0" max="25" data-suffix="px">
+    <div>
+        <label>Base color:</label>
+        <input type="color" name="base">
+        <img src="https://c1.staticflickr.com/9/8002/7240235238_eedb23fb0e.jpg" alt="Tokio">
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+<script>
+  const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+  let cities = [];
+  fetch(endpoint)
+    .then(blob => blob.json())
+    .then(data => cities.push(...data));
+
+  function findMatches(wordToMatch, cities) {
+    return cities.filter(place => {
+      let regex = new RegExp(wordToMatch, 'gi');
+      return place.city.match(regex) || place.city.match(regex);
+    });
+  }
+
+  function displayMatches(value) {
+    let matches = findMatches(this.value, cities);
+    let html = matches.map(place => {
+      let regex = new RegExp(this.value, 'gi');
+      let match = place.match(regex);
+      return `
+        <li>
+          <span>${place.city}, ${place.state}</span>
+          <span>${place.population}</span>
+        </li>
+      `;
+    }).join('');//ahora html es un string
+    suggestions.innerHTML = html;
+  }
+
+  let searchInput = document.getElementsByClassName('search')[0];
+  let suggestions = document.getElementsByClassName('suggestions')[0];
+
+  searchInput.addEventListener('change', displayMatches);
+  searchInput.addEventListener('keyup', displayMatches);
+
+
+
+
+</script>
+</body>
+</html>

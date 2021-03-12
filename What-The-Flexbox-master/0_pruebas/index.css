@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    border: 10px solid goldenrod;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-content: center;
+}
+
+.item {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: bolder;
+    font-size: 50px;
+    text-shadow: 2px 2px lightgray;
+    flex:1;
+}
+.item1 {
+    background-color: darkcyan;
+    flex:2;
+}
+.item2 {background-color: darkorange;}
+.item3 {background-color: royalblue;}
+.item4 {background-color: red;}

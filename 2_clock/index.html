@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        .clock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -200px;
+            width: 200px;
+            height: 200px;
+            border: 10px solid black;
+            border-radius: 50%;
+        }
+        .hand {
+            position: relative;
+            background-color: black;
+            height: 2px;
+            width: 50%;
+            top: 50%;
+            transform-origin: 100% 0%;
+            transform: rotate(-90deg);
+            transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1)
+        }
+        .second {
+            height: 1px;
+            background-color: red;
+        }
+    </style>
+    
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <div class="clock">
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+    </div>
+</body>
+</html>
